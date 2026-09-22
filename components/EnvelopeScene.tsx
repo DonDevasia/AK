@@ -129,7 +129,7 @@ export default function EnvelopeScene({ onBack }: { onBack?: () => void }) {
                 transition={{ type: "spring", damping: 20, stiffness: 100 }}
               >
                 <div
-                  className="w-[270px] h-[360px] sm:w-[320px] sm:h-[420px] rounded-sm p-6 sm:p-8 flex flex-col shadow-2xl relative"
+                  className="w-[95vw] max-w-[500px] min-h-[60vh] h-auto max-h-[90vh] rounded-sm p-6 sm:p-10 flex flex-col shadow-2xl relative"
                   style={{
                     background: `linear-gradient(135deg, #FFFDFC, #F8F4EB 60%, #EFE8D6), ${paperTexture}`,
                     boxShadow: '0 20px 40px rgba(0,0,0,0.2), inset 0 0 40px rgba(0,0,0,0.05)',
@@ -160,9 +160,10 @@ export default function EnvelopeScene({ onBack }: { onBack?: () => void }) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex flex-col w-full flex-grow z-10"
+                    className="flex flex-col w-full flex-grow z-10 overflow-y-auto pr-2 pb-2"
+                    style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(217, 107, 121, 0.4) transparent' }}
                   >
-                    <p className="font-caveat text-lg sm:text-xl text-gray-800 leading-relaxed whitespace-pre-wrap">
+                    <p className="font-caveat text-xl sm:text-2xl text-gray-800 leading-relaxed whitespace-pre-wrap">
                       {letter.message}
                     </p>
                   </motion.div>
