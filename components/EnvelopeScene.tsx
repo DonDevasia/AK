@@ -23,7 +23,7 @@ const LETTERS: Letter[] = [
     id: 2,
     title: "Happiest Birthday, Ananyeee ❤️✨",
     icon: "💗",
-    message: ` You are one of the best friends I’ve ever had \n Unlike A Friend You're Special \n "The Special One💎"\n and When you text me “Doneee” I can Literally hear your voice ... Happy Birthdayhh Anuooo<3
+    message: ` You are one of the best friends I’ve ever had \n Unlike A Friend You're Special \n "The Special One💎"\n and When you text me “Doneee” I can Literally hear your voice ... Happy Birthdayhh Anuuhhh....<3
       .`,
     rotation: 0
   },
@@ -137,7 +137,7 @@ export default function EnvelopeScene({ onBack }: { onBack?: () => void }) {
                 >
                   {/* Stamp graphic placeholder */}
                   <div className="absolute top-6 right-6 w-12 h-14 border-2 border-red-400/30 flex items-center justify-center opacity-50 rotate-12">
-                     <span className="text-red-400/40 text-[10px] font-bold tracking-widest uppercase rotate-90">Postage</span>
+                    <span className="text-red-400/40 text-[10px] font-bold tracking-widest uppercase rotate-90">Postage</span>
                   </div>
 
                   {/* Fold creases */}
@@ -177,9 +177,9 @@ export default function EnvelopeScene({ onBack }: { onBack?: () => void }) {
       {/* Floor Shadow */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.div 
+          <motion.div
             exit={{ opacity: 0 }}
-            className="absolute w-[250px] sm:w-[350px] h-12 bg-black/10 rounded-[100%] blur-xl translate-y-36 sm:translate-y-44 pointer-events-none" 
+            className="absolute w-[250px] sm:w-[350px] h-12 bg-black/10 rounded-[100%] blur-xl translate-y-36 sm:translate-y-44 pointer-events-none"
           />
         )}
       </AnimatePresence>
@@ -343,7 +343,7 @@ export default function EnvelopeScene({ onBack }: { onBack?: () => void }) {
                   {/* Wax rim bumps to look organic */}
                   <div className="absolute inset-0 rounded-full border-4 border-[#B04554] mix-blend-multiply opacity-50 blur-[1px]"></div>
                   <div className="absolute inset-1 rounded-full border border-white/20"></div>
-                  
+
                   {/* Wax Stamp Impression */}
                   <svg viewBox="0 0 24 24" className="relative z-10 w-6 h-6 sm:w-8 sm:h-8 text-[#751B27] drop-shadow-sm transform -translate-y-px" fill="currentColor">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
