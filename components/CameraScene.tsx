@@ -226,18 +226,32 @@ function BoxFace({ bg, transform, isLid, hasBow }: { bg: string, transform: stri
 function Butterfly({ image, index, total, onSelect }: { image: string; index: number; total: number; onSelect: () => void }) {
   const [isPinned, setIsPinned] = useState(false);
 
-  // Scatter randomly in all directions within screen bounds
+  // Spread evenly across the screen using a jittered grid
   const screenWidth = typeof window !== "undefined" ? window.innerWidth : 800;
   const screenHeight = typeof window !== "undefined" ? window.innerHeight : 800;
   
-  const maxRangeX = Math.max(50, (screenWidth / 2) - 80);
-  const maxRangeY = Math.max(50, (screenHeight / 2) - 100);
+  const cols = 3;
+  const rows = Math.ceil(total / cols);
+  const colIndex = index % cols;
+  const rowIndex = Math.floor(index / cols);
 
-  const finalX = (Math.random() - 0.5) * 2 * maxRangeX;
-  const finalY = (Math.random() - 0.5) * 2 * maxRangeY;
+  const paddingX = screenWidth < 600 ? 40 : 100;
+  const paddingY = 120;
+
+  const cellWidth = (screenWidth - paddingX) / cols;
+  const cellHeight = (screenHeight - paddingY) / rows;
+
+  // Center of the target cell
+  const baseX = (colIndex * cellWidth) + (cellWidth / 2) - ((screenWidth - paddingX) / 2);
+  const baseY = (rowIndex * cellHeight) + (cellHeight / 2) - ((screenHeight - paddingY) / 2);
+
+  // Add random jitter within the cell
+  const finalX = baseX + (Math.random() - 0.5) * (cellWidth * 0.5);
+  const finalY = baseY + (Math.random() - 0.5) * (cellHeight * 0.5);
   
   // Random flight path parameters
-  const randomPathX = Array.from({ length: 3 }, () => (Math.random() - 0.5) * (maxRangeX * 1.5));
+  const maxRangeX = (screenWidth / 2) - 40;
+  const randomPathX = Array.from({ length: 3 }, () => (Math.random() - 0.5) * maxRangeX * 1.5);
   const randomPathY = Array.from({ length: 3 }, () => (Math.random() - 0.5) * 400 - 100);
   
   const finalRotation = (Math.random() - 0.5) * 40; // Pin rotation
