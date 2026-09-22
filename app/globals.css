@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #101B4D;
+  --color-blue: #25366F;
+  --color-lightblue: #A8BDE5;
+  --color-cream: #FFFDF4;
+  --color-paper: #F8F4E8;
+  --color-red: #8A1025;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-caveat: var(--font-caveat), cursive;
+  --font-hand: var(--font-patrick-hand), cursive;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+    /* Graph paper background */
+    background-image: 
+      linear-gradient(to right, rgba(16, 27, 77, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16, 27, 77, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: center top;
+  }
+}
+
+@layer utilities {
+  .shadow-scrapbook {
+    box-shadow: 2px 4px 12px rgba(16, 27, 77, 0.15);
+  }
+  
+  .border-scrapbook {
+    border: 2px solid var(--color-navy);
+    border-radius: 4px 6px 3px 5px;
+  }
+
+  .text-shadow-sm {
+    text-shadow: 1px 1px 2px rgba(16, 27, 77, 0.1);
+  }
+}
