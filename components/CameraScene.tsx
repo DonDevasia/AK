@@ -227,30 +227,32 @@ function Butterfly({ image, index, total, onSelect }: { image: string; index: nu
   const [isPinned, setIsPinned] = useState(false);
 
   // Spread evenly across the screen using a jittered grid
-  const screenWidth = typeof window !== "undefined" ? window.innerWidth : 800;
-  const screenHeight = typeof window !== "undefined" ? window.innerHeight : 800;
+  // We must constrain to the actual container dimensions (max 800w x 600h on desktop, 430w x 750h on mobile)
+  // because page.tsx wraps the app in a bounded scrapbook container.
+  const containerWidth = typeof window !== "undefined" ? Math.min(window.innerWidth - 32, 800) : 800;
+  const containerHeight = typeof window !== "undefined" ? (window.innerWidth >= 640 ? 600 : 750) : 600;
   
   const cols = 3;
   const rows = Math.ceil(total / cols);
   const colIndex = index % cols;
   const rowIndex = Math.floor(index / cols);
 
-  const paddingX = screenWidth < 600 ? 40 : 100;
-  const paddingY = 120;
+  const paddingX = containerWidth < 500 ? 60 : 120;
+  const paddingY = 160;
 
-  const cellWidth = (screenWidth - paddingX) / cols;
-  const cellHeight = (screenHeight - paddingY) / rows;
+  const cellWidth = (containerWidth - paddingX) / cols;
+  const cellHeight = (containerHeight - paddingY) / rows;
 
   // Center of the target cell
-  const baseX = (colIndex * cellWidth) + (cellWidth / 2) - ((screenWidth - paddingX) / 2);
-  const baseY = (rowIndex * cellHeight) + (cellHeight / 2) - ((screenHeight - paddingY) / 2);
+  const baseX = (colIndex * cellWidth) + (cellWidth / 2) - ((containerWidth - paddingX) / 2);
+  const baseY = (rowIndex * cellHeight) + (cellHeight / 2) - ((containerHeight - paddingY) / 2);
 
   // Add random jitter within the cell
   const finalX = baseX + (Math.random() - 0.5) * (cellWidth * 0.5);
   const finalY = baseY + (Math.random() - 0.5) * (cellHeight * 0.5);
   
   // Random flight path parameters
-  const maxRangeX = (screenWidth / 2) - 40;
+  const maxRangeX = (containerWidth / 2) - 40;
   const randomPathX = Array.from({ length: 3 }, () => (Math.random() - 0.5) * maxRangeX * 1.5);
   const randomPathY = Array.from({ length: 3 }, () => (Math.random() - 0.5) * 400 - 100);
   
