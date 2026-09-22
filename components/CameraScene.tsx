@@ -13,7 +13,8 @@ const IMAGES = [
   "/pp/IMG_3136.webp",
   "/pp/dg41ntkzbc149jqtaxfm.webp",
   "/pp/dpotfzaqu4yi7na9ia2h.webp",
-  "/pp/zcgily5zbv7qhirpqqp8.webp"
+  "/pp/zcgily5zbv7qhirpqqp8.webp",
+  "/pp/IMG_3121.webp"
 ];
 
 export default function CameraScene({ onBack }: { onBack: () => void }) {
