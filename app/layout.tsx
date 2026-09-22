@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   description: "A special birthday surprise",
 };
 
+import CursorLove from "@/components/CursorLove";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +35,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${caveat.variable} ${patrickHand.variable} antialiased min-h-screen flex flex-col font-sans bg-cream text-navy overflow-x-hidden`}
       >
+        <CursorLove />
         {children}
       </body>
     </html>
