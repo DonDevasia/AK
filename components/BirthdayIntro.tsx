@@ -30,6 +30,7 @@ export default function BirthdayIntro({ onNext }: { onNext: () => void }) {
     // Transition to next scene after poppers fire
     setTimeout(() => {
       onNext();
+      setIsTransitioning(false);
     }, 1500);
   };
 

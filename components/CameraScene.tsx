@@ -30,9 +30,10 @@ export default function CameraScene({ onBack }: { onBack: () => void }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.8 }}
       className="w-full h-full flex flex-col items-center justify-center p-4 z-10 relative overflow-hidden bg-[#F6F1E7]"
     >
       <button 

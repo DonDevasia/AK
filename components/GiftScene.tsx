@@ -12,10 +12,10 @@ export default function GiftScene({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.8 }}
       className="w-full h-full flex flex-col items-center justify-center p-6 text-center z-10 relative overflow-hidden"
     >
       <motion.div 

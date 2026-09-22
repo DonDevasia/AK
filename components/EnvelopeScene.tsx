@@ -72,11 +72,11 @@ export default function EnvelopeScene({ onBack }: { onBack?: () => void }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-full h-full flex flex-col items-center justify-center p-4 z-10 relative overflow-hidden"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.8 }}
+      className="w-full h-full flex flex-col items-center justify-center p-4 sm:p-6 z-10 relative overflow-hidden bg-[#F8F4EB]"
     >
 
       {/* Back Button */}
