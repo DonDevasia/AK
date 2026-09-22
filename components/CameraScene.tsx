@@ -3,13 +3,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-// Placeholder images. You can add more to public/images/ and add the paths here!
+// Pictures from the public/pp directory for the gift box reveal
 const IMAGES = [
-  "/images/cake.jpg",
-  "/images/camera_new.jpg",
-  "/images/envelope_new.jpg",
-  "/images/spiderweb.jpg",
-  "/images/star.jpg",
+  "/pp/IMG_1717.webp",
+  "/pp/IMG_3124.webp",
+  "/pp/IMG_3125.webp",
+  "/pp/IMG_3129.webp",
+  "/pp/IMG_3135.webp",
+  "/pp/IMG_3136.webp",
+  "/pp/dg41ntkzbc149jqtaxfm.webp",
+  "/pp/dpotfzaqu4yi7na9ia2h.webp",
+  "/pp/zcgily5zbv7qhirpqqp8.webp"
 ];
 
 export default function CameraScene({ onBack }: { onBack: () => void }) {

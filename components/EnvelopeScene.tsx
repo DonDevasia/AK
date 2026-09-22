@@ -23,7 +23,7 @@ const LETTERS: Letter[] = [
     id: 2,
     title: "Happiest Birthday, Ananyeee ❤️✨",
     icon: "💗",
-    message: ` You are one of the best friends I’ve ever had \n Unlike A Friend You're Special \n "The Special One💎"\n and When you text me “Doneee” I can Literally hear your voice ... Happy Birthdayhh Anuuhhh....<3
+    message: ` You are one of the best friends I’ve ever had \n Unlike A Friend You're Special \n "The Special One💎"\n and When you text me “Doneee” I can Literally hear your voice ... Happy Birthdayhh Anuuhhh....<3 \n\n -Don
       .`,
     rotation: 0
   },
