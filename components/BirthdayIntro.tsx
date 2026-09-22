@@ -48,7 +48,7 @@ export default function BirthdayIntro({ onNext }: { onNext: () => void }) {
 
       {/* Main Content */}
       <motion.h1 
-        className="font-caveat text-[40px] min-[375px]:text-[50px] sm:text-[72px] md:text-[90px] text-[#28327C] font-normal z-30 mt-[15vh] sm:mt-[12vh] text-center leading-tight px-4"
+        className="font-caveat text-[40px] min-[375px]:text-[50px] sm:text-[72px] md:text-[90px] text-[#28327C] font-normal z-30 mt-[22vh] sm:mt-[15vh] text-center leading-tight px-4"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -80,7 +80,7 @@ export default function BirthdayIntro({ onNext }: { onNext: () => void }) {
 
       {/* Images (retaining reference exact assets) */}
       <motion.div 
-        className="absolute bottom-[-5%] sm:bottom-[-2%] w-[85%] max-w-[280px] sm:max-w-none sm:w-[500px] md:w-[600px] mix-blend-multiply z-20 pointer-events-none flex justify-center"
+        className="absolute bottom-0 w-[85%] max-w-[280px] sm:max-w-none sm:w-[500px] md:w-[600px] mix-blend-multiply z-20 pointer-events-none flex justify-center"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
