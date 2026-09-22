@@ -133,7 +133,7 @@ export default function CameraScene({ onBack }: { onBack: () => void }) {
             onClick={() => setActiveImageIndex(null)}
           >
             <div 
-              className="relative max-w-sm sm:max-w-md w-full bg-[#FFFDFC] p-4 sm:p-6 pb-16 sm:pb-20 rounded-sm shadow-2xl border border-gray-200"
+              className="relative max-w-sm sm:max-w-md w-full bg-[#FFFDFC] p-4 sm:p-6 pb-8 sm:pb-10 rounded-sm shadow-2xl border border-gray-200"
               onClick={e => e.stopPropagation()}
             >
               <button 
@@ -150,9 +150,6 @@ export default function CameraScene({ onBack }: { onBack: () => void }) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="absolute bottom-4 sm:bottom-6 left-0 right-0 text-center font-caveat text-3xl sm:text-4xl text-gray-800">
-                Memory {activeImageIndex + 1} ✨
-              </p>
             </div>
           </motion.div>
         )}
@@ -229,19 +226,18 @@ function BoxFace({ bg, transform, isLid, hasBow }: { bg: string, transform: stri
 function Butterfly({ image, index, total, onSelect }: { image: string; index: number; total: number; onSelect: () => void }) {
   const [isPinned, setIsPinned] = useState(false);
 
-  // Scatter positions for polaroids
-  // We place them in a rough circle/grid around the center
-  const angle = (index / total) * Math.PI * 2;
-  
-  // Calculate a responsive max radius so polaroids don't fly off screen on small mobiles
+  // Scatter randomly in all directions within screen bounds
   const screenWidth = typeof window !== "undefined" ? window.innerWidth : 800;
-  const maxRadius = Math.min(120 + Math.random() * 80, (screenWidth / 2) - 70);
+  const screenHeight = typeof window !== "undefined" ? window.innerHeight : 800;
+  
+  const maxRangeX = Math.max(50, (screenWidth / 2) - 80);
+  const maxRangeY = Math.max(50, (screenHeight / 2) - 100);
 
-  const finalX = Math.cos(angle) * maxRadius;
-  const finalY = Math.sin(angle) * maxRadius - 40;
+  const finalX = (Math.random() - 0.5) * 2 * maxRangeX;
+  const finalY = (Math.random() - 0.5) * 2 * maxRangeY;
   
   // Random flight path parameters
-  const randomPathX = Array.from({ length: 3 }, () => (Math.random() - 0.5) * (maxRadius * 1.5));
+  const randomPathX = Array.from({ length: 3 }, () => (Math.random() - 0.5) * (maxRangeX * 1.5));
   const randomPathY = Array.from({ length: 3 }, () => (Math.random() - 0.5) * 400 - 100);
   
   const finalRotation = (Math.random() - 0.5) * 40; // Pin rotation
@@ -402,9 +398,6 @@ function Butterfly({ image, index, total, onSelect }: { image: string; index: nu
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="absolute bottom-1 sm:bottom-2 left-0 right-0 text-center font-caveat text-xl sm:text-2xl text-gray-800">
-              Memory {index + 1}
-            </p>
           </motion.div>
         )}
       </AnimatePresence>
